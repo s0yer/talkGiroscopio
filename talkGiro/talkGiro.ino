@@ -1,10 +1,13 @@
 //Carrega a biblioteca Wire
+//Load library Wire
 #include<Wire.h>
  
 //Endereco I2C do MPU6050
+//Adress I2C of MPU6050
 const int MPU=0x68;  
 
 //Variaveis para armazenar valores dos sensores
+//Variables tostore sensor values
 int AcX,AcY,AcZ,Tmp,GyX,GyY,GyZ;
 
 void setup()
@@ -40,6 +43,7 @@ void loop()
 
    
   //Mostra os valores na serial
+  //Shows the values in the serial 
   Serial.print("Acel. X = "); Serial.print(AcX);
   Serial.print(" | Y = "); Serial.print(AcY);
   Serial.print(" | Z = "); Serial.print(AcZ);
@@ -49,5 +53,6 @@ void loop()
   Serial.print(" | Temp = "); Serial.println(Tmp/340.00+36.53);
     
   //Aguarda 200 ms e reinicia o processo
+  //Wait for 200ms and restart the process
   delay(200);
 }
