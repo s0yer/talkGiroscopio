@@ -18,6 +18,7 @@ void setup()
   Wire.write(0x6B); 
    
   //Inicializa o MPU-6050
+  // Start the MPU-6050
   Wire.write(0); 
   Wire.endTransmission(true);
     
@@ -30,9 +31,11 @@ void loop()
   Wire.endTransmission(false);
   
   //Solicita os dados do sensor
+  //Request sensor data
   Wire.requestFrom(MPU,14,true);  
   
-  //Armazena o valor dos sensores nas variaveis correspondentes
+  //Armazena o valores dos sensores nas variaveis correspondentes
+  //Stores the values of the sensors in the corresponding variables
   AcX=Wire.read()<<8|Wire.read(); //0x3B (ACCEL_XOUT_H) & 0x3C (ACCEL_XOUT_L)     
   AcY=Wire.read()<<8|Wire.read(); //0x3D (ACCEL_YOUT_H) & 0x3E (ACCEL_YOUT_L)
   AcZ=Wire.read()<<8|Wire.read(); //0x3F (ACCEL_ZOUT_H) & 0x40 (ACCEL_ZOUT_L)
